@@ -36,13 +36,7 @@ export class TypesComponent implements OnInit {
   }
 
   doChooseTypes(target){
-    var targetId;
-
-    Object.keys(this.typesList).forEach(function(element, index, array){
-      if(element === target) targetId = index;
-    })
-
-    console.log(this.typesList[targetId])
+    this.selectTypes = this.typesList[target];
   }
 
 }

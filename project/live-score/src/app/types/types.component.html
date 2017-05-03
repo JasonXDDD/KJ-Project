@@ -24,16 +24,16 @@
     <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum
       fermentum etiam vivamus.</p>
     <div class="row ">
-      <div class="col-md-4 ">
+      <div class="col-md-3 ">
         <div class="list-group">
           <a (click)="doChooseTypes(types)" class="list-group-item list-group-item-action" *ngFor="let types of typesName">{{ types }}</a>
         </div>
       </div>
-      <div class="col-md-8 ">
+      <div class="col-md-9 ">
         <div class="row">
 
-          <div class="col-md-3" *ngFor="let item of selectTypes">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
+          <div class="col-md-4" *ngFor="let item of selectTypes">
+            <button type="button" class="btn btn-primary btn-lg" style="width: 100%">{{ item.name }}</button>
           </div>
 
         </div>
