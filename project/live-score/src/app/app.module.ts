@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { TypesComponent } from './types/types.component';
 import { GamesComponent } from './games/games.component';
 import { RanksComponent } from './ranks/ranks.component';
+import { EventComponent } from './home/event/event.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RanksComponent } from './ranks/ranks.component';
     HomeComponent,
     TypesComponent,
     GamesComponent,
-    RanksComponent
+    RanksComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

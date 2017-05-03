@@ -1,0 +1,10 @@
+.event-card {
+  box-shadow: 1px 5px 10px #888;
+  text-decoration: none;
+  color: #171717
+}
+
+.event-card:hover{
+  box-shadow: 1px 5px 20px #888;
+  background-color: #eee
+}

@@ -12,25 +12,8 @@
   </header>
 
   <div class="box alt container ">
-    <div class="row ">
-      <div class="col-md-4 ">
-        <a class="card " href="contest.html">
-          <div class="card-block ">
-            <h4 class="card-title ">XXXXXX比賽</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <!--<p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-            <!--<a href="# " class="card-link ">Card link</a>
-							<a href="# " class="card-link ">Another link</a>-->
-          </div>
-
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Start Time: </li>
-            <li class="list-group-item">End Time: </li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </a>
-      </div>
-
+    <div class="row">
+      <app-event *ngFor="let eventItem of eventList" [eventItem]="eventItem" class="col-md-4"></app-event>
     </div>
   </div>
 

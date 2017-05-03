@@ -1,0 +1,17 @@
+<a class="card event-card" (click)="doChooseEvent()">
+  <div class="card-block ">
+    <h4 class="card-title " style="line-height: 1.5em">{{ eventItem.name }}</h4>
+    <h6 class="card-subtitle mb-2" style="color:darkcyan">{{ eventItem.event_status }}</h6>
+    <br>
+    <p class="card-text" style="text-align: center">
+      <span style="font-weight: 900; font-size: 1.4em;">{{ eventItem.organizer }}</span>
+      <br>{{ eventItem.contact }}
+      <br>{{ eventItem.address }}
+    </p>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Start Time: {{ eventItem.start_at | date:"yyyy.MM.dd"}}</li>
+    <li class="list-group-item">End Time: {{ eventItem.end_at | date:"yyyy.MM.dd"}}</li>
+  </ul>
+</a>

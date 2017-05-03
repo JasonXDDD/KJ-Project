@@ -28,11 +28,11 @@ export class GamesComponent implements OnInit {
       ]
     }
 
-    $(function () {
-      $('#score').bracket({
-        init: minimalData /* data to initialize the bracket with */
-      })
-    })
+    // $(function () {
+    //   $('#score').bracket({
+    //     init: minimalData /* data to initialize the bracket with */
+    //   })
+    // })
   }
 
 }

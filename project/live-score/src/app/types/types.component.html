@@ -2,67 +2,22 @@
 <div id="main">
 
   <header class="major container 75%">
-    <h2>XXXXXX比賽</h2>
+    <h2>{{ eventItem.name }}</h2>
     <br>
     <br>
-    <img src="https://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg" alt="" width="100%">
+    <!--<img src="https://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg" alt="" width="100%">-->
 
-    <!--
-			<p>Tellus erat mauris ipsum fermentum<br />
-			etiam vivamus nunc nibh morbi.</p>
-			-->
+
+    <p style="font-style: italic">{{ eventItem.event_intro }}</p>
+    <p style="text-align: center">
+      <span style="font-weight: 900;">{{ eventItem.organizer }}</span>
+      <br>{{ eventItem.contact }}
+      <br>{{ eventItem.address }}
+    </p>
+    <li class="list-group-item">Start Time: {{ eventItem.start_at | date:"yyyy.MM.dd"}}</li>
+    <li class="list-group-item">End Time: {{ eventItem.end_at | date:"yyyy.MM.dd"}}</li>
+
   </header>
-
-
-  <div class="box alt container ">
-    <div class="row ">
-
-
-      <div class="col-md-4 ">
-        <a class="card " href="#">
-          <div class="card-block ">
-            <h4 class="card-title ">XXXXXX比賽</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <!--<p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-            <!--<a href="# " class="card-link ">Card link</a>
-							<a href="# " class="card-link ">Another link</a>-->
-          </div>
-
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Start Time: </li>
-            <li class="list-group-item">End Time: </li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </a>
-      </div>
-
-
-      <div class="col-md-4 ">
-        <div class="card ">
-          <div class="card-block ">
-            <h4 class="card-title ">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="# " class="card-link ">Card link</a>
-            <a href="# " class="card-link ">Another link</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 ">
-        <div class="card ">
-          <div class="card-block ">
-            <h4 class="card-title ">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="# " class="card-link ">Card link</a>
-            <a href="# " class="card-link ">Another link</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
 
   <footer class="major alt container ">
     <h3>Get shady with science</h3>
@@ -71,30 +26,16 @@
     <div class="row ">
       <div class="col-md-4 ">
         <div class="list-group">
-          <a href="#" class="list-group-item active">Cras justo odio</a>
-          <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-          <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-          <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-          <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+          <a (click)="doChooseTypes(types)" class="list-group-item list-group-item-action" *ngFor="let types of typesName">{{ types }}</a>
         </div>
       </div>
       <div class="col-md-8 ">
         <div class="row">
-          <div class="col-md-3">
+
+          <div class="col-md-3" *ngFor="let item of selectTypes">
             <button type="button" class="btn btn-primary btn-lg">Large button</button>
           </div>
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
-          </div>
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
-          </div>
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
-          </div>
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
-          </div>
+
         </div>
       </div>
     </div>
