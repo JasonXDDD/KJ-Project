@@ -15,50 +15,41 @@
 
 
   <div class="box alt container ">
+    <div class="row">
+      <div class="col-md-4">
+        <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">循環賽</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">淘汰賽</button>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">積分</button>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <hr>
+
     <div class="row ">
+      <div class="col-md-6" *ngFor="let item of roundrobin.class">
+        <h2>{{ item }}</h2>
+        <table class="table table-inverse">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th *ngFor="let team of roundrobin.data[item].teams">{{ team.name }}<br><small>{{ team.player }}</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Ateam of roundrobin.data[item].teams">
+              <th scope="row">{{ Ateam.name }}<br><small>{{ Ateam.player }}</small></th>
+              <td *ngFor="let Bteam of roundrobin.data[item].teams" style="white-space: pre-line;">{{ calcScore( item, Ateam.id, Bteam.id) }}</td>
+            </tr>
 
-
-      <div class="col-md-4 ">
-        <a class="card " href="#">
-          <div class="card-block ">
-            <h4 class="card-title ">XXXXXX比賽</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <!--<p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-            <!--<a href="# " class="card-link ">Card link</a>
-							<a href="# " class="card-link ">Another link</a>-->
-          </div>
-
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Start Time: </li>
-            <li class="list-group-item">End Time: </li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </a>
+          </tbody>
+        </table>
       </div>
 
-
-      <div class="col-md-4 ">
-        <div class="card ">
-          <div class="card-block ">
-            <h4 class="card-title ">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="# " class="card-link ">Card link</a>
-            <a href="# " class="card-link ">Another link</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 ">
-        <div class="card ">
-          <div class="card-block ">
-            <h4 class="card-title ">Card title</h4>
-            <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-            <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="# " class="card-link ">Card link</a>
-            <a href="# " class="card-link ">Another link</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -69,7 +60,7 @@
     <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum
       fermentum etiam vivamus.</p>
     <div class="row ">
-      <div id="score"></div>      
+      <div id="score"></div>
     </div>
   </footer>
 </div>

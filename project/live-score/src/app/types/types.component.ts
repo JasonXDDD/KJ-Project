@@ -39,4 +39,9 @@ export class TypesComponent implements OnInit {
     this.selectTypes = this.typesList[target];
   }
 
+  doChooseGames(target){
+    sessionStorage.setItem('typeItem', JSON.stringify(target));
+    this.router.navigate(['/games']);
+  }
+
 }
