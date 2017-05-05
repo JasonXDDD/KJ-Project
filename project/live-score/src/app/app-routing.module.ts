@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'types', component: TypesComponent},
   { path: 'games', component: GamesComponent},
   { path: 'ranks', component: RanksComponent},
+  { path: '**', redirectTo:'/index'}
 ];
 
 @NgModule({
