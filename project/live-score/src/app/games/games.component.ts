@@ -1,6 +1,8 @@
 import { element } from 'protractor';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-games',
@@ -11,7 +13,7 @@ export class GamesComponent implements OnInit {
   typeItem: any;
 
   roundrobin: any;
-  constructor(private http: Http) {
+  constructor(private http: Http, private datePipe: DatePipe) {
     this.roundrobin = {
       class: [],
       data: {}
@@ -58,7 +60,7 @@ export class GamesComponent implements OnInit {
 
     if(type === 1) return game.team_A_score + ":" + game.team_B_score;
     else if(type === 2) return game.team_B_score + ":" + game.team_A_score;
-    else if(type === 3) return "[" + game.game_place + "]\n" + game.game_time;
+    else if(type === 3) return "[" + game.game_place + "]\n" + this.datePipe.transform(game.game_date, 'yyyy.MM.dd') + "\n" + game.game_time;
     else return "\\";
   }
 

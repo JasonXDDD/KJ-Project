@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +27,7 @@ import { EventComponent } from './home/event/event.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers:[DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
