@@ -14,6 +14,14 @@ export class EventComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeWord(text){
+       switch(text){
+      case 'starting': return '競賽進行中';
+      case 'preparing': return '競賽尚未開始';
+      case 'finished': return '競賽已結束';
+    }
+  }
+
   doChooseEvent(){
     sessionStorage.setItem('eventItem', JSON.stringify(this.eventItem));
     this.router.navigate(['/types'])

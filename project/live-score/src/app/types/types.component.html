@@ -2,25 +2,23 @@
 <div id="main">
 
   <header class="major container 75%">
-    <h2>{{ eventItem.name }}</h2>
-    <br>
-    <br>
+    <h2 style=" line-height: 1em; font-size: 2em">{{ eventItem.name }}<hr><span style="font-style: italic; font-size: 26px;">{{ eventItem.event_intro }}</span></h2>
     <!--<img src="https://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg" alt="" width="100%">-->
 
 
-    <p style="font-style: italic">{{ eventItem.event_intro }}</p>
-    <p style="text-align: center">
-      <span style="font-weight: 900;">{{ eventItem.organizer }}</span>
-      <br>{{ eventItem.contact }}
-      <br>{{ eventItem.address }}
+    <p style="text-align: left">
+      
+    主辦單位｜{{ eventItem.organizer }}<br>
+    聯絡方式｜{{ eventItem.contact }}<br>
+    場館地址｜{{ eventItem.address }}<br>
+    開始日期｜{{ eventItem.start_at | date: "yyyy.MM.dd"}}<br>
+    結束日期｜{{ eventItem.end_at | date:"yyyy.MM.dd"}}
     </p>
-    <li class="list-group-item">Start Time: {{ eventItem.start_at | date:"yyyy.MM.dd"}}</li>
-    <li class="list-group-item">End Time: {{ eventItem.end_at | date:"yyyy.MM.dd"}}</li>
 
   </header>
 
-  <footer class="major alt container ">
-    <h3>比賽</h3>
+  <div class="major alt container ">
+    <h2 style=" line-height: 1em; font-size: 2em">賽程項目</h2>
     <!--<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum-->
       <!--fermentum etiam vivamus.</p>-->
     <div class="row ">
@@ -39,5 +37,5 @@
         </div>
       </div>
     </div>
-  </footer>
+  </div>
 </div>

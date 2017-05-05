@@ -1,20 +1,20 @@
 <!-- Main -->
 <div id="main">
 
-  <header class="major container 75%">
-    <h2>XXXXXX比賽</h2>
-    <br>
-    <br>
-    <img src="https://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg" alt="" width="100%">
+ <!--<header class="major container 75%">-->
+    <!--<img src="https://beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg" alt="" width="100%">-->
 
     <!--
 			<p>Tellus erat mauris ipsum fermentum<br />
 			etiam vivamus nunc nibh morbi.</p>
 			-->
-  </header>
+  <!--</header>-->
 
 
   <div class="box alt container ">
+    <h2>{{ typeItem.name }}</h2>
+    <hr>
+    
     <div class="row">
       <div class="col-md-4">
         <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">循環賽</button>
@@ -32,7 +32,7 @@
 
     <div class="row ">
       <div class="col-md-12" *ngFor="let item of roundrobin.class">
-        <h2>{{ item }}</h2>
+        <h2>循環賽 {{ item }} 組</h2>
         <table class="table table-inverse">
           <thead>
             <tr>
@@ -53,14 +53,4 @@
     </div>
   </div>
 
-
-
-  <footer class="major alt container ">
-    <h3>Get shady with science</h3>
-    <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum
-      fermentum etiam vivamus.</p>
-    <div class="row ">
-      <div id="score"></div>
-    </div>
-  </footer>
 </div>

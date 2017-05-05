@@ -1,10 +1,10 @@
 <a class="card event-card" (click)="doChooseEvent()">
   <div class="card-block ">
-    <h4 class="card-title " style="line-height: 1.5em">{{ eventItem.name }}</h4>
-    <h6 class="card-subtitle mb-2" style="color:darkcyan">{{ eventItem.event_status }}</h6>
+    <h3 class="card-title " style="line-height: 1.5em; letter-spacing:0;">{{ eventItem.name }}</h3>
+    <h6 class="card-subtitle mb-2" style="color:darkcyan">{{ changeWord(eventItem.event_status) }}</h6>
     <br>
     <p class="card-text" style="text-align: center">
-      <span style="font-weight: 900; font-size: 1.4em;">{{ eventItem.organizer }}</span>
+      <span style="font-weight: 900; font-size: 1.2em;">{{ eventItem.organizer }}</span>
       <br>{{ eventItem.contact }}
       <br>{{ eventItem.address }}
     </p>

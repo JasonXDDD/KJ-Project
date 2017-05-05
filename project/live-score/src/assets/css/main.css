@@ -2512,7 +2512,7 @@
 		background-repeat: repeat-x,						repeat,					no-repeat;
 		background-size: 3200px 460px,					auto,					cover;
 		color: rgba(255, 255, 255, 0.8);
-		padding: 10em 0 20em 0;
+		padding: 3em 0 15em 0;
 		position: relative;
 		text-align: center;
 	}
@@ -2583,7 +2583,7 @@
 			}
 
 		#header h1 {
-			font-size: 2.5em;
+			font-size: 3.5em;
 			margin: 0;
 		}
 
@@ -2610,7 +2610,7 @@
 		*/
 
 		margin-top: -260px;
-		padding: calc(460px + 6em) 0 10em 0;
+		padding: calc(460px - 4em) 0 10em 0;
 		position: relative;
 		text-align: center;
 	}
@@ -2706,7 +2706,7 @@
 /* Main */
 
 	#main {
-		padding: 6em 0 5em 0;
+		padding: 0 0 5em 0;
 		position: relative;
 		z-index: 1;
 	}
