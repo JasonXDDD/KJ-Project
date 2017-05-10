@@ -14,7 +14,7 @@
   <div class="box alt container ">
     <h2>{{ typeItem.name }}</h2>
     <hr>
-    
+
     <div class="row">
       <div class="col-md-4">
         <button type="button" class="btn btn-primary btn-lg" style="width: 100%;">循環賽</button>
@@ -30,26 +30,27 @@
     <hr>
     <hr>
 
-    <div class="row ">
-      <div class="col-md-12" *ngFor="let item of roundrobin.class">
+    <div class="row" *ngFor="let item of roundrobin.class">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
         <h2>循環賽 {{ item }} 組</h2>
-        <table class="table table-inverse">
+        <table class="table table-inverse" style="line-height: 1.2">
           <thead>
             <tr>
               <th>#</th>
-              <th *ngFor="let team of roundrobin.data[item].teams">{{ team.name }}<br><small>{{ team.player }}</small></th>
+              <th *ngFor="let team of roundrobin.data[item].teams">[{{ team.name }}]<br><small>{{ team.player }}</small></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let Ateam of roundrobin.data[item].teams">
-              <th scope="row">{{ Ateam.name }}<br><small>{{ Ateam.player }}</small></th>
+              <th scope="row">[{{ Ateam.name }}]<br><small>{{ Ateam.player }}</small></th>
               <td *ngFor="let Bteam of roundrobin.data[item].teams" style="white-space: pre-line;">{{ calcScore( item, Ateam.id, Bteam.id) }}</td>
             </tr>
 
           </tbody>
         </table>
       </div>
-
+      <div class="col-md-2"></div>
     </div>
   </div>
 

@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EventComponent implements OnInit {
   @Input() eventItem: any;
+  isLive: boolean;
 
   constructor(private router: Router) { }
 
@@ -15,10 +16,10 @@ export class EventComponent implements OnInit {
   }
 
   changeWord(text){
-       switch(text){
-      case 'starting': return '競賽進行中';
-      case 'preparing': return '競賽尚未開始';
-      case 'finished': return '競賽已結束';
+    switch(text){
+      case 'starting': this.isLive = true; return '競賽進行中';
+      case 'preparing': this.isLive = false; return '競賽尚未開始';
+      case 'finished': this.isLive = false; return '競賽已結束';
     }
   }
 

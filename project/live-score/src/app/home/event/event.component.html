@@ -1,17 +1,25 @@
-<a class="card event-card" (click)="doChooseEvent()">
+<a class="card event-card" style="cursor: pointer; height: 450px" (click)="doChooseEvent()">
   <div class="card-block ">
-    <h3 class="card-title " style="line-height: 1.5em; letter-spacing:0;">{{ eventItem.name }}</h3>
-    <h6 class="card-subtitle mb-2" style="color:darkcyan">{{ changeWord(eventItem.event_status) }}</h6>
-    <br>
+    <h3 class="card-title " style="line-height: 1.5em; letter-spacing:0; font-size: 1.8em">{{ eventItem.name }}</h3>
+    <h6 class="card-subtitle mb-2"
+      [ngClass]="{'live': isLive, 'unlive': !isLive}">
+      {{ changeWord(eventItem.event_status) }}
+      <img *ngIf="eventItem.event_status === 'starting'" class="animated infinite fadeIn fadeIn-Live" src="/assets/images/live.jpg" width="50px" style="display: block; margin: 0 auto">
+
+    </h6>
+
     <p class="card-text" style="text-align: center">
-      <span style="font-weight: 900; font-size: 1.2em;">{{ eventItem.organizer }}</span>
-      <br>{{ eventItem.contact }}
-      <br>{{ eventItem.address }}
+      <span style="font-weight: 900; font-size: 1em;">{{ eventItem.organizer }}</span>
+
+      <br>
+      <br>
+      <span style="font-size: 1em" [ngClass]="{'live': isLive, 'unlive': !isLive}">點選以顯示競賽詳情</span>
     </p>
+
   </div>
 
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Start Time: {{ eventItem.start_at | date:"yyyy.MM.dd"}}</li>
-    <li class="list-group-item">End Time: {{ eventItem.end_at | date:"yyyy.MM.dd"}}</li>
+    <li class="list-group-item">開始日期：{{ eventItem.start_at | date:"yyyy-MM-dd HH:mm"}}</li>
+    <li class="list-group-item">結束日期：{{ eventItem.end_at | date:"yyyy-MM-dd HH:mm"}}</li>
   </ul>
 </a>

@@ -1,7 +1,8 @@
 import { element } from 'protractor';
 import { Http } from '@angular/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {Observable} from 'rxjs/Observable';
 
 
 @Component({
@@ -11,18 +12,40 @@ import { DatePipe } from '@angular/common';
 })
 export class GamesComponent implements OnInit {
   typeItem: any;
-
   roundrobin: any;
-  constructor(private http: Http, private datePipe: DatePipe) {
+  constructor(private http: Http, private datePipe: DatePipe, private zone: NgZone) {
     this.roundrobin = {
       class: [],
-      data: {}
+      data: {},
+      games: []
     }
   }
 
   ngOnInit() {
+
     this.typeItem = JSON.parse(sessionStorage.getItem('typeItem'))
     this.doGetGames();
+
+    Observable.create(observer =>{
+      var socket = io('http://huangserver.ddns.net:3030/');
+      var app = feathers()
+        .configure(feathers.hooks())
+        .configure(feathers.socketio(socket));
+      //When games update
+      socket.on('patched', (message) => {
+        console.log('Someone patched a message', message);
+        observer.next(message)
+      })
+    })
+
+    .subscribe(message => {
+      this.zone.run(()=>{
+        this.roundrobin.games.forEach(element => {
+          if(element.game_id === message.game_id) element = message;
+        });
+      })
+    })
+
     // this.doShowKnockoutScore();
 
   }
@@ -32,6 +55,13 @@ export class GamesComponent implements OnInit {
       .subscribe(result =>{
         this.roundrobin.class = Object.keys(result.json());
         this.roundrobin.data = result.json();
+        this.roundrobin.class.forEach(element=>{
+          this.roundrobin.data[element].games.forEach(game => {
+            this.roundrobin.games.push(game);
+          });
+        })
+
+        console.log(this.roundrobin.games)
       })
   }
   doShowRoundRobinScore(){
@@ -39,7 +69,6 @@ export class GamesComponent implements OnInit {
   }
 
   calcScore(gameClass, idRight, idTop){
-    // console.log(gameClass)
     var game;
     var type;
     this.roundrobin.data[gameClass].games.forEach(element=>{
@@ -61,8 +90,26 @@ export class GamesComponent implements OnInit {
     if(type === 1) return game.team_A_score + ":" + game.team_B_score;
     else if(type === 2) return game.team_B_score + ":" + game.team_A_score;
     else if(type === 3) return "[" + game.game_place + "]\n" + this.datePipe.transform(game.game_date, 'yyyy.MM.dd') + "\n" + game.game_time;
-    else return "\\";
+    else return "＼\n　＼\n　　＼";
   }
+
+
+  initSocket(observer) {
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   doShowKnockoutScore() {
 

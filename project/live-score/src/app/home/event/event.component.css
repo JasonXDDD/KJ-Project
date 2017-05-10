@@ -8,3 +8,18 @@
   box-shadow: 1px 5px 20px #888;
   background-color: #eee
 }
+
+
+.live{
+  color: darkred;
+}
+
+.unlive{
+  color:darkcyan
+}
+
+.fadeIn-Live {
+  -webkit-animation-duration: 2s;
+  /*-webkit-animation-delay: 2s;*/
+  -webkit-animation-iteration-count: infinite;
+}
