@@ -34,7 +34,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <h2>循環賽 {{ item }} 組</h2>
-        <table class="table table-inverse" style="line-height: 1.2">
+        <table class="table" style="line-height: 1.2">
           <thead>
             <tr>
               <th>#</th>
@@ -44,7 +44,9 @@
           <tbody>
             <tr *ngFor="let Ateam of roundrobin.data[item].teams">
               <th scope="row">[{{ Ateam.name }}]<br><small>{{ Ateam.player }}</small></th>
-              <td *ngFor="let Bteam of roundrobin.data[item].teams" style="white-space: pre-line;">{{ calcScore( item, Ateam.id, Bteam.id) }}</td>
+              <td *ngFor="let Bteam of roundrobin.data[item].teams" style="white-space: pre-line;"
+                [ngClass]="{'starting': checkIsStarting(item, Ateam.id, Bteam.id)}">{{ calcScore(item, Ateam.id, Bteam.id) }}
+              </td>
             </tr>
 
           </tbody>
