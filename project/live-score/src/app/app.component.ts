@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
       array.push(byteString.charCodeAt(i));
     }
 
-    var blob = new Blob([new Uint8Array(array)], {type: mimeString});
+    var blob = new Blob([new Uint8Array(array)], { type: mimeString });
     return blob;
   }
 
@@ -72,6 +72,14 @@ export class AppComponent implements OnInit {
       .subscribe(result => {
 
       })
+  }
+
+  doClearFile() {
+    if (this.event_id == null || this.event_id == "") {
+      alert("請填寫正確");
+      return;
+    }
+    this.http.delete('http://huangserver.ddns.net:3030/events/clean/' + this.event_id);
   }
 
 }
