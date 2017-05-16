@@ -1,35 +1,67 @@
-
 <nav class="navbar navbar-toggleable-md bg-faded navbar-inverse bg-inverse sticky-top">
-<div class="container">
+  <div class="container">
 
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">LIVE SCORE 即時比分系統</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">LIVE SCORE 即時比分系統</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">介紹</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">賽事</a>
-      </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">介紹</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">賽事</a>
+        </li>
 
-    </ul>
+      </ul>
 
-    <ul class="nav justify-content-end">
-      <li class="nav-item ">
-        <a class="nav-link" href="#">登入</a>
-      </li>
-    </ul>
+      <ul class="nav justify-content-end">
+        <li class="nav-item ">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#importModal">登入</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="importModalLabel">匯入檔案</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form ngForm>
+          <div class="form-group">
+            <label for="file-data" class="form-control-label">FILE:</label>
+            <input type="file" accept=".xlsx, .xls" class="form-control" id="file-data" (change)="fileChangeEvent($event)">
+          </div>
+          <div class="form-group">
+            <label for="event-data" class="form-control-label">Event ID:</label>
+            <input type="text" class="form-control" name="event-data" required [(ngModel)]="event_id">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="doSendFile()">Send</button>
+      </div>
+    </div>
   </div>
 </div>
 
-</nav>
+
+
 
 
 <!-- Header -->
